@@ -27,6 +27,43 @@ html, body {
   height: 35%;
   width: 100%; }
 
+#categoryBar {
+  position: absolute;
+  height: 30px;
+  width: auto;
+  top: 35%;
+  right: 0;
+  margin: 0;
+  padding: 0; }
+  #categoryBar p {
+    margin: 0; }
+  #categoryBar .track {
+    float: left;
+    margin: 0;
+    width: auto;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 1.2em; }
+  #categoryBar .hideTrack {
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    margin-top: 4px;
+    margin-left: -2px;
+    float: right;
+    top: 0px;
+    left: 0px;
+    background-image: url("../img/hide.png");
+    background-position: top right;
+    background-color: #555; }
+  #categoryBar .inactive .hideTrack {
+    background-image: url("../img/reload.png"); }
+  #categoryBar .inactive {
+    opacity: 0.5; }
+  #categoryBar input {
+    margin: 3px 20px 2px 2px;
+    width: 180px; }
+
 /*#descriptionBox{ height:19px; background-color:#eee; line-height:15px; border-top: 1px solid #999;
   table{ width:100%;}
   td{ text-align:center; font-size:12px; color:#666; }
@@ -36,9 +73,11 @@ html, body {
 }*/
 #bottomBox {
   position: relative;
-  height: 65%;
+  height: -webkit-calc(65% - 30px);
+  height: -moz-calc(65% - 30px);
+  height: calc(65% - 30px);
+  margin-top: 30px;
   width: 100%;
-  background-color: #f9f9f9;
   border-top: 1px solid #999;
   box-sizing: border-box; }
   #bottomBox #leftBox {
@@ -116,9 +155,7 @@ html, body {
       line-height: 1em;
       font-size: 12px; }
     #leftBox #listData table .deleted {
-      text-decoration: line-through;
-      background-color: #ccc;
-      font-size: 0.7em; }
+      display: none; }
     #leftBox #listData table .deleted td:nth-child(1) {
       opacity: 0.2; }
     #leftBox #listData table .listEl .bgColor_-1 {
@@ -309,43 +346,28 @@ html, body {
   #rightBox .display .caption {
     text-align: left;
     color: #333; }
-  #rightBox .display #tracks {
-    margin-top: 15px; }
-    #rightBox .display #tracks .track {
-      float: left;
-      margin: 0;
-      width: auto;
-      padding: 5px 10px;
-      font-weight: bold;
-      font-size: 1.2em; }
-    #rightBox .display #tracks .hideTrack {
-      cursor: pointer;
-      width: 14px;
-      height: 14px;
-      margin-top: 4px;
-      margin-right: -2px;
-      float: left;
-      top: 0px;
-      left: 0px;
-      background-image: url("../img/hide.png");
-      background-position: top right;
-      background-color: #333; }
-    #rightBox .display #tracks .inactive .hideTrack {
-      background-image: url("../img/reload.png"); }
-    #rightBox .display #tracks .inactive {
-      opacity: 0.5; }
-    #rightBox .display #tracks input {
-      margin: 3px 20px 2px 2px;
-      width: 180px; }
   #rightBox .display #dateContent {
     overflow-y: auto; }
     #rightBox .display #dateContent #mediaBox {
-      margin: 0 30px 30px 30px; }
+      margin: 0 30px 30px 30px;
+      height: 120%; }
       #rightBox .display #dateContent #mediaBox img {
         max-width: 100%; }
       #rightBox .display #dateContent #mediaBox p {
         padding: 0;
         margin: 0; }
+      #rightBox .display #dateContent #mediaBox .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+        padding-top: 25px;
+        height: 0; }
+      #rightBox .display #dateContent #mediaBox .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; }
   #rightBox .display #prevDate, #rightBox .display #nextDate {
     margin-top: -27px;
     position: absolute;
@@ -372,9 +394,9 @@ html, body {
   padding: 5px 10px;
   background-color: #fff;
   cursor: pointer;
-  -moz-box-shadow: 2px 2px 0px #cccccc;
-  -webkit-box-shadow: 2px 2px 0px #cccccc;
-  box-shadow: 2px 2px 0px #cccccc; }
+  -moz-box-shadow: 2px 2px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px #ccc;
+  box-shadow: 2px 2px 0px #ccc; }
 
 .ctlBtns {
   width: 25px;
@@ -385,14 +407,14 @@ html, body {
   background-color: #fff;
   background-position: center;
   cursor: pointer;
-  -moz-box-shadow: 2px 2px 0px #cccccc;
-  -webkit-box-shadow: 2px 2px 0px #cccccc;
-  box-shadow: 2px 2px 0px #cccccc; }
+  -moz-box-shadow: 2px 2px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px #ccc;
+  box-shadow: 2px 2px 0px #ccc; }
 
 .ctlBtns:active, .ctl:active {
-  -moz-box-shadow: 0px 0px 0px #cccccc;
-  -webkit-box-shadow: 0px 0px 0px #cccccc;
-  box-shadow: 0px 0px 0px #cccccc;
+  -moz-box-shadow: 0px 0px 0px #ccc;
+  -webkit-box-shadow: 0px 0px 0px #ccc;
+  box-shadow: 0px 0px 0px #ccc;
   margin: 2px 0px 0px 2px; }
 
 #addDoc, #addDate {
@@ -576,17 +598,17 @@ input {
   font-size: 0.8em;
   font-weight: bold;
   color: #fff;
-  -moz-box-shadow: 2px 2px 0px #cccccc;
-  -webkit-box-shadow: 2px 2px 0px #cccccc;
-  box-shadow: 2px 2px 0px #cccccc; }
+  -moz-box-shadow: 2px 2px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px #ccc;
+  box-shadow: 2px 2px 0px #ccc; }
 
 .chosen, .changeTrack:active, .chooseTrack:active {
   margin: 2px 3px 0 5px;
   outline: 2px solid #efefef;
-  -moz-box-shadow: 0px 0px 0px #cccccc;
-  -webkit-box-shadow: 0px 0px 0px #cccccc;
-  box-shadow: 0px 0px 0px #cccccc;
-  border: 2px inset #333333;
+  -moz-box-shadow: 0px 0px 0px #ccc;
+  -webkit-box-shadow: 0px 0px 0px #ccc;
+  box-shadow: 0px 0px 0px #ccc;
+  border: 2px inset #333;
   padding: 0px 7px; }
 
 #fileinfo {
@@ -725,13 +747,13 @@ input {
     text-align: center;
     height: 30px;
     line-height: 30px;
-    -moz-box-shadow: 2px 2px 0px #cccccc;
-    -webkit-box-shadow: 2px 2px 0px #cccccc;
-    box-shadow: 2px 2px 0px #cccccc; }
+    -moz-box-shadow: 2px 2px 0px #ccc;
+    -webkit-box-shadow: 2px 2px 0px #ccc;
+    box-shadow: 2px 2px 0px #ccc; }
   #inputOverlay .btn:active {
-    -moz-box-shadow: 0px 0px 0px #cccccc;
-    -webkit-box-shadow: 0px 0px 0px #cccccc;
-    box-shadow: 0px 0px 0px #cccccc;
+    -moz-box-shadow: 0px 0px 0px #ccc;
+    -webkit-box-shadow: 0px 0px 0px #ccc;
+    box-shadow: 0px 0px 0px #ccc;
     margin: 2px 0px 0px 2px; }
 
 #saved {
@@ -768,13 +790,15 @@ input {
   margin: 0px;
   border-radius: 50%;
   padding: 1px 7px;
-  -moz-box-shadow: 2px 2px 0px #cccccc;
-  -webkit-box-shadow: 2px 2px 0px #cccccc;
-  box-shadow: 2px 2px 0px #cccccc;
+  -moz-box-shadow: 2px 2px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px #ccc;
+  box-shadow: 2px 2px 0px #ccc;
   text-align: center; }
 
 .help:active {
-  -moz-box-shadow: 0px 0px 0px #cccccc;
-  -webkit-box-shadow: 0px 0px 0px #cccccc;
-  box-shadow: 0px 0px 0px #cccccc;
+  -moz-box-shadow: 0px 0px 0px #ccc;
+  -webkit-box-shadow: 0px 0px 0px #ccc;
+  box-shadow: 0px 0px 0px #ccc;
   margin: 2px; }
+
+/*# sourceMappingURL=style.css.map */
