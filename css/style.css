@@ -386,12 +386,14 @@ html, body {
     right: 0px; }
 #rightBox #tlcCredit {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  margin: 0; }
+  bottom: 0px;
+  right: 0px;
+  margin: 0;
+  padding: 3px 5px;
+  background-color: rgba(0, 0, 0, 0.2); }
   #rightBox #tlcCredit a {
     text-decoration: none;
-    color: #999; }
+    color: #666; }
 
 .ctl {
   padding: 5px 10px;
