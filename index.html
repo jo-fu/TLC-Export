@@ -66,8 +66,8 @@
                     <li ng-repeat="file in fileNames track by $index" ng-click="switchView( $index,'clickDoc')" id="button_{{ $index }}" class="docBtn docBtn_{{ $index }}" ng-class="{ activeBtn: $index == 0 }" style="background-color : rgb( {{ colorDate[file.trackNr] }} )">
                         <div class="doctitle"> {{ file.title }} </div>
                         <div class="doctools">
-                            <b>{{ $index+1 }}</b>/{{ fileNames.length }}
-                            <div class="hideDoc" id="hideDoc_{{$index}}" ng-click="hideDoc( $index )"></div>
+                            <b>{{ $index+1 }}</b><span>/{{ fileNames.length }}</span>
+                            <!--div class="hideDoc" id="hideDoc_{{$index}}" ng-click="hideDoc( $index )"></div-->
                         </div>
                     </li>
                 </ul>

@@ -274,11 +274,14 @@ html, body {
     top: 0;
     height: 25px;
     text-align: right;
-    font-size: 0.7em;
+    font-size: 1em;
     font-weight: normal;
     padding: 6px 2px 2px 0;
     background-color: #fff;
     color: #333; }
+    #centerBox #docSwitcher .doctools span {
+      color: #666;
+      font-size: 0.8em; }
   #centerBox #docSwitcher .inactive {
     font-size: 0.7em;
     background-color: #999 !important;
