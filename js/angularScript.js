@@ -17,22 +17,19 @@ app
         ]
 
         $scope.sortBy = [{
-            title: "Order inside document",
-            val: "id"
-        }, {
-            title: "Chronology of dates",
+            title: "Chronology of all dates",
             val: "val"
         }, {
+            title: "Order within document",
+            val: "id"
+        }, /*{
             title: "Type of event",
             val: "typ"
         }, {
-            title: "State of curation",
-            val: "touched"
-        }, {
             title: "Document",
             val: "document"
-        }, {
-            title: "Track",
+        },*/ {
+            title: "Categories",
             val: "trackNr"
         }]
 
